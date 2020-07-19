@@ -18,27 +18,23 @@ _G.Toggle_GUI = _G.Toggle_GUI or Enum.KeyCode.RightControl
 
 local library = {WindowCount = 0}
 
-local function randomStr() 
-    --I didn't create this function (not sure who did)
-    local chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-    local length = 10
-    local randomString = ''
 
-    math.randomseed(os.time())
-
-    charTable = {}
-    for c in chars:gmatch"." do
-        table.insert(charTable, c)
-    end
-
-    for i = 1, length do
-        randomString = randomString .. charTable[math.random(1, #charTable)]
-    end
-    return randomString
+local function RandomString(Length)
+	math.randomseed(os.time())
+	local Possible = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	local Characters = {}
+	local Output = ""
+	Possible:gsub(".", function(v)
+		table.insert(Characters, v)
+	end)
+	for i = 1, Length do
+		Output = Output .. Characters[math.random(1, #Characters)]
+	end
+	return Output
 end
 
 local function makeDraggable(obj) 
-    --Got this from devforums because I was lazy
+    --Got this from devforums because roblox removed the draggable property for some reason
     local UserInputService = game:GetService("UserInputService")
 
     local gui = obj
@@ -81,7 +77,7 @@ local function makeDraggable(obj)
 end
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.CoreGui
-ScreenGui.Name = tostring(randomStr())
+ScreenGui.Name = RandomString(10)
 
 local GuiToggled = false
 local UIS = game:GetService("UserInputService")
