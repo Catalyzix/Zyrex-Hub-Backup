@@ -284,7 +284,7 @@ function library:CreateWindow(text)
         end
 
 		local function FireClick()
-			pcall(callback)
+			spawn(function() pcall(callback) end)
 			local Mouse = game.Players.LocalPlayer:GetMouse()
 			local Circle = Instance.new("ImageLabel")
 			Circle.Name = "Circle"
