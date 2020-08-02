@@ -284,33 +284,35 @@ function library:CreateWindow(text)
         end
 
 		local function FireClick()
-			spawn(function() pcall(callback) end)
-			local Mouse = game.Players.LocalPlayer:GetMouse()
-			local Circle = Instance.new("ImageLabel")
-			Circle.Name = "Circle"
-			Circle.Parent = Button
-			Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Circle.BackgroundTransparency = 1.000
-			Circle.ZIndex = 10
-			Circle.Image = "rbxassetid://266543268"
-			Circle.ImageColor3 = Color3.fromRGB(0, 0, 0)
-			Circle.ImageTransparency = 0.4
-			local NewX, NewY = Mouse.X - Circle.AbsolutePosition.X, Mouse.Y - Circle.AbsolutePosition.Y
-			Circle.Position = UDim2.new(0, NewX, 0, NewY)
-			local Size = 0
-			if Button.AbsoluteSize.X > Button.AbsoluteSize.Y then
-				Size = Button.AbsoluteSize.X * 1.5
-			elseif Button.AbsoluteSize.X < Button.AbsoluteSize.Y then
-				Size = Button.AbsoluteSize.Y * 1.5
-			elseif Button.AbsoluteSize.X == Button.AbsoluteSize.Y then
-				Size = Button.AbsoluteSize.X * 1.5
-			end
-			Circle:TweenSizeAndPosition(UDim2.new(0, Size, 0, Size), UDim2.new(0.5, - Size / 2, 0.5, - Size / 2), "Out", "Quad", 0.5, false)
-			for i = 1, 20 do
-				Circle.ImageTransparency = Circle.ImageTransparency + 0.05
-				wait(0.5 / 10)
-			end
-            Circle:Destroy()
+			spawn(function()
+				local Mouse = game.Players.LocalPlayer:GetMouse()
+				local Circle = Instance.new("ImageLabel")
+				Circle.Name = "Circle"
+				Circle.Parent = Button
+				Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Circle.BackgroundTransparency = 1.000
+				Circle.ZIndex = 10
+				Circle.Image = "rbxassetid://266543268"
+				Circle.ImageColor3 = Color3.fromRGB(0, 0, 0)
+				Circle.ImageTransparency = 0.4
+				local NewX, NewY = Mouse.X - Circle.AbsolutePosition.X, Mouse.Y - Circle.AbsolutePosition.Y
+				Circle.Position = UDim2.new(0, NewX, 0, NewY)
+				local Size = 0
+				if Button.AbsoluteSize.X > Button.AbsoluteSize.Y then
+					Size = Button.AbsoluteSize.X * 1.5
+				elseif Button.AbsoluteSize.X < Button.AbsoluteSize.Y then
+					Size = Button.AbsoluteSize.Y * 1.5
+				elseif Button.AbsoluteSize.X == Button.AbsoluteSize.Y then
+					Size = Button.AbsoluteSize.X * 1.5
+				end
+				Circle:TweenSizeAndPosition(UDim2.new(0, Size, 0, Size), UDim2.new(0.5, - Size / 2, 0.5, - Size / 2), "Out", "Quad", 0.5, false)
+				for i = 1, 20 do
+					Circle.ImageTransparency = Circle.ImageTransparency + 0.05
+					wait(0.5 / 10)
+				end
+				Circle:Destroy()
+			end)
+			pcall(callback)
         end
         Button.MouseButton1Click:Connect(FireClick)
 	end
