@@ -769,39 +769,37 @@ function library:CreateWindow(text)
 		local SliderButton = Instance.new("TextButton")
 		local Roundify = Instance.new("ImageLabel")
 		local SliderFrame = Instance.new("ImageLabel")
+		local Text = Instance.new("TextLabel")
 		
 		Slider.Name = "Slider"
 		Slider.Parent = ObjectFrame
 		Slider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Slider.BackgroundTransparency = 1.000
-		Slider.Position = UDim2.new(0.075144507, 0, 0.464912266, 0)
-		Slider.Size = UDim2.new(0, 173, 0, 32)
+		Slider.Position = UDim2.new(0, 0, 0.394736856, 0)
+		Slider.Size = UDim2.new(0, 173, 0, 38)
 		Slider.Font = Enum.Font.Gotham
-		Slider.Text = text
+		Slider.Text = ""
 		Slider.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Slider.TextSize = 14.000
 		Slider.TextXAlignment = Enum.TextXAlignment.Left
-		Slider.TextYAlignment = Enum.TextYAlignment.Top
 		
 		Amount.Name = "Amount"
 		Amount.Parent = Slider
 		Amount.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Amount.BackgroundTransparency = 1.000
-		Amount.Position = UDim2.new(0, 0, 0, 0)
-		Amount.Size = UDim2.new(0, 173, 0, 26)
+		Amount.Size = UDim2.new(0, 173, 0, 28)
 		Amount.Font = Enum.Font.Gotham
 		Amount.Text = min
 		Amount.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Amount.TextSize = 14.000
 		Amount.TextXAlignment = Enum.TextXAlignment.Right
-		Amount.TextYAlignment = Enum.TextYAlignment.Top
-		
+
 		SliderButton.Name = "SliderButton"
 		SliderButton.Parent = Slider
 		SliderButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		SliderButton.BackgroundTransparency = 1.000
 		SliderButton.BorderSizePixel = 0
-		SliderButton.Position = UDim2.new(0, 0, 0.695615351, 0)
+		SliderButton.Position = UDim2.new(0, 0, 0.760208607, 0)
 		SliderButton.Size = UDim2.new(0, 173, 0, 9)
 		SliderButton.Font = Enum.Font.SourceSans
 		SliderButton.Text = ""
@@ -823,9 +821,24 @@ function library:CreateWindow(text)
 		Roundify.SliceCenter = Rect.new(100, 100, 100, 100)
 		Roundify.SliceScale = 0.030
 		
+		Roundify.Name = "Roundify"
+		Roundify.Parent = SliderButton
+		Roundify.Active = true
+		Roundify.AnchorPoint = Vector2.new(0.5, 0.5)
+		Roundify.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+		Roundify.BackgroundTransparency = 1.000
+		Roundify.Position = UDim2.new(0.5, 0, 0.5, 0)
+		Roundify.Selectable = true
+		Roundify.Size = UDim2.new(1, 0, 1, 0)
+		Roundify.Image = "rbxassetid://3570695787"
+		Roundify.ImageColor3 = Color3.fromRGB(16, 16, 16)
+		Roundify.ScaleType = Enum.ScaleType.Slice
+		Roundify.SliceCenter = Rect.new(100, 100, 100, 100)
+		Roundify.SliceScale = 0.030
+		
 		SliderFrame.Name = "SliderFrame"
 		SliderFrame.Parent = SliderButton
-		SliderFrame.BackgroundColor3 = Color3.fromRGB(109, 109, 109)
+		SliderFrame.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
 		SliderFrame.BackgroundTransparency = 1.000
 		SliderFrame.Size = UDim2.new(0, 0, 0, 9)
 		SliderFrame.Image = "rbxassetid://3570695787"
@@ -833,6 +846,17 @@ function library:CreateWindow(text)
 		SliderFrame.ScaleType = Enum.ScaleType.Slice
 		SliderFrame.SliceCenter = Rect.new(100, 100, 100, 100)
 		SliderFrame.SliceScale = 0.030
+
+		Text.Name = "Text"
+		Text.Parent = Slider
+		Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Text.BackgroundTransparency = 1.000
+		Text.Size = UDim2.new(0, 173, 0, 28)
+		Text.Font = Enum.Font.Gotham
+		Text.Text = text
+		Text.TextColor3 = Color3.fromRGB(255, 255, 255)
+		Text.TextSize = 14.000
+		Text.TextXAlignment = Enum.TextXAlignment.Left
 
 		--// Credits to text for the slider functionality
 		local mouse = game.Players.LocalPlayer:GetMouse()
