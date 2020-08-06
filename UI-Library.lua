@@ -1,5 +1,5 @@
 --[[
-Created by Zyrex#4338
+Created by Zyrex#9999
 
 Documentation:
 library:CreateWindow(Name <string>)
@@ -308,7 +308,7 @@ function library:CreateWindow(text)
 				Circle:TweenSizeAndPosition(UDim2.new(0, Size, 0, Size), UDim2.new(0.5, - Size / 2, 0.5, - Size / 2), "Out", "Quad", 0.5, false)
 				for i = 1, 20 do
 					Circle.ImageTransparency = Circle.ImageTransparency + 0.05
-					wait(0.5 / 10)
+					wait(0.3 / 10)
 				end
 				Circle:Destroy()
 			end)
