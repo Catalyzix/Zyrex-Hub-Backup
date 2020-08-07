@@ -179,7 +179,7 @@ function library:CreateWindow(text)
 		ToggleWindowBtn,
 		TweenInfo.new(
 			1,
-			Enum.EasingStyle.Quart,
+			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.InOut
 		),
 		{
@@ -190,7 +190,7 @@ function library:CreateWindow(text)
 		ToggleWindowBtn,
 		TweenInfo.new(
 			1,
-			Enum.EasingStyle.Quart,
+			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.InOut
 		),
 		{
@@ -201,10 +201,10 @@ function library:CreateWindow(text)
 	ToggleWindowBtn.MouseButton1Click:Connect(function()
 		if WindowToggled == false then
 			Frame.ClipsDescendants = true
-			Frame:TweenSize(UDim2.new(0, 187, 0, 30), "InOut", "Quart", 1, true)
+			Frame:TweenSize(UDim2.new(0, 187, 0, 30), "InOut", "Quad", 1, true)
 			CloseTween:Play()
 		elseif WindowToggled == true then
-			Frame:TweenSize(UDim2.new(0, 187, 0, Frame.Header.ObjectFrame.UIListLayout1.AbsoluteContentSize.Y + 45), "InOut", "Quart", 1, true)
+			Frame:TweenSize(UDim2.new(0, 187, 0, Frame.Header.ObjectFrame.UIListLayout1.AbsoluteContentSize.Y + 45), "InOut", "Quad", 1, true)
 			OpenTween:Play() 
 			wait(1)
 			Frame.ClipsDescendants = false
@@ -252,7 +252,7 @@ function library:CreateWindow(text)
             Roundify,
             TweenInfo.new(
 			0.5,
-			Enum.EasingStyle.Quart,
+			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.Out
             ),
             {
@@ -264,7 +264,7 @@ function library:CreateWindow(text)
             Roundify,
             TweenInfo.new(
 			0.5,
-			Enum.EasingStyle.Quart,
+			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.Out
             ),
             {
@@ -640,7 +640,7 @@ function library:CreateWindow(text)
 			DropArrow2,
 			TweenInfo.new(
 				1,
-				Enum.EasingStyle.Quart,
+				Enum.EasingStyle.Quad,
 				Enum.EasingDirection.InOut
 			),
 			{
@@ -651,7 +651,7 @@ function library:CreateWindow(text)
 			DropArrow2,
 			TweenInfo.new(
 				1,
-				Enum.EasingStyle.Quart,
+				Enum.EasingStyle.Quad,
 				Enum.EasingDirection.InOut
 			),
 			{
@@ -667,7 +667,7 @@ function library:CreateWindow(text)
 					pcall(callback, selected)
 					Dropdown.Text = selected
 					ArrowUp:Play()
-					DropFrame:TweenSize(UDim2.new(0, 173, 0, 22), "InOut", "Quart", 1, true)
+					DropFrame:TweenSize(UDim2.new(0, 173, 0, 22), "InOut", "Quad", 1, true)
 					DropToggled = false
 					wait(1)
 					DropFrame.Visible = false
@@ -676,7 +676,7 @@ function library:CreateWindow(text)
 					Roundify,
 					TweenInfo.new(
 					0.5,
-					Enum.EasingStyle.Quart,
+					Enum.EasingStyle.Quad,
 					Enum.EasingDirection.Out
 					),
 					{
@@ -688,7 +688,7 @@ function library:CreateWindow(text)
 					Roundify,
 					TweenInfo.new(
 					0.5,
-					Enum.EasingStyle.Quart,
+					Enum.EasingStyle.Quad,
 					Enum.EasingDirection.Out
 					),
 					{
@@ -710,12 +710,12 @@ function library:CreateWindow(text)
 			if DropToggled == false then
 				ArrowDown:Play()
 				DropFrame.Visible = true
-				DropFrame:TweenSize(UDim2.new(0, 173, 0, UIListLayout.AbsoluteContentSize.Y), "InOut", "Quart", 1, true)
+				DropFrame:TweenSize(UDim2.new(0, 173, 0, UIListLayout.AbsoluteContentSize.Y), "InOut", "Quad", 1, true)
 				wait(0.8)
 				DropFrame.Size = UDim2.new(0, 173, 0, UIListLayout.AbsoluteContentSize.Y)
 			else
 				ArrowUp:Play()
-				DropFrame:TweenSize(UDim2.new(0, 173, 0, 22), "InOut", "Quart", 1, true)
+				DropFrame:TweenSize(UDim2.new(0, 173, 0, 22), "InOut", "Quad", 1, true)
 				wait(0.8)
 				DropFrame.Visible = false
 			end
@@ -728,7 +728,7 @@ function library:CreateWindow(text)
             Roundify,
             TweenInfo.new(
 			0.5,
-			Enum.EasingStyle.Quart,
+			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.Out
             ),
             {
@@ -740,7 +740,7 @@ function library:CreateWindow(text)
             Roundify,
             TweenInfo.new(
 			0.5,
-			Enum.EasingStyle.Quart,
+			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.Out
             ),
             {
