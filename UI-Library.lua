@@ -178,7 +178,7 @@ function library:CreateWindow(text)
 	local CloseTween = TweenService:Create(
 		ToggleWindowBtn,
 		TweenInfo.new(
-			1,
+			0.5,
 			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.InOut
 		),
@@ -189,7 +189,7 @@ function library:CreateWindow(text)
 	local OpenTween = TweenService:Create(
 		ToggleWindowBtn,
 		TweenInfo.new(
-			1,
+			0.5,
 			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.InOut
 		),
@@ -204,7 +204,7 @@ function library:CreateWindow(text)
 			Frame:TweenSize(UDim2.new(0, 187, 0, 30), "InOut", "Quad", 0.5, true)
 			CloseTween:Play()
 		elseif WindowToggled == true then
-			Frame:TweenSize(UDim2.new(0, 187, 0, Frame.Header.ObjectFrame.UIListLayout1.AbsoluteContentSize.Y + 45), "InOut", "Quad", 1, true)
+			Frame:TweenSize(UDim2.new(0, 187, 0, Frame.Header.ObjectFrame.UIListLayout1.AbsoluteContentSize.Y + 45), "InOut", "Quad", 0.5, true)
 			OpenTween:Play() 
 			wait(1)
 			Frame.ClipsDescendants = false
@@ -667,9 +667,9 @@ function library:CreateWindow(text)
 					pcall(callback, selected)
 					Dropdown.Text = selected
 					ArrowUp:Play()
-					DropFrame:TweenSize(UDim2.new(0, 173, 0, 22), "InOut", "Quad", 1, true)
+					DropFrame:TweenSize(UDim2.new(0, 173, 0, 22), "InOut", "Quad", 0.5, true)
 					DropToggled = false
-					wait(1)
+					wait(0.5)
 					DropFrame.Visible = false
 				end)
 				local MouseEntered = TweenService:Create(
@@ -710,7 +710,7 @@ function library:CreateWindow(text)
 			if DropToggled == false then
 				ArrowDown:Play()
 				DropFrame.Visible = true
-				DropFrame:TweenSize(UDim2.new(0, 173, 0, UIListLayout.AbsoluteContentSize.Y), "InOut", "Quad", 1, true)
+				DropFrame:TweenSize(UDim2.new(0, 173, 0, UIListLayout.AbsoluteContentSize.Y), "InOut", "Quad", 0.5, true)
 				wait(0.8)
 				DropFrame.Size = UDim2.new(0, 173, 0, UIListLayout.AbsoluteContentSize.Y)
 			else
