@@ -201,7 +201,7 @@ function library:CreateWindow(text)
 	ToggleWindowBtn.MouseButton1Click:Connect(function()
 		if WindowToggled == false then
 			Frame.ClipsDescendants = true
-			Frame:TweenSize(UDim2.new(0, 187, 0, 30), "InOut", "Quad", 1, true)
+			Frame:TweenSize(UDim2.new(0, 187, 0, 30), "InOut", "Quad", 0.5, true)
 			CloseTween:Play()
 		elseif WindowToggled == true then
 			Frame:TweenSize(UDim2.new(0, 187, 0, Frame.Header.ObjectFrame.UIListLayout1.AbsoluteContentSize.Y + 45), "InOut", "Quad", 1, true)
@@ -251,7 +251,7 @@ function library:CreateWindow(text)
         local MouseEntered = TweenService:Create(
             Roundify,
             TweenInfo.new(
-			0.5,
+			0.3,,
 			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.Out
             ),
@@ -263,7 +263,7 @@ function library:CreateWindow(text)
         local MouseLeft = TweenService:Create(
             Roundify,
             TweenInfo.new(
-			0.5,
+			0.3,
 			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.Out
             ),
@@ -639,7 +639,7 @@ function library:CreateWindow(text)
 		local ArrowDown = TweenService:Create(
 			DropArrow2,
 			TweenInfo.new(
-				1,
+				0.5,
 				Enum.EasingStyle.Quad,
 				Enum.EasingDirection.InOut
 			),
@@ -650,7 +650,7 @@ function library:CreateWindow(text)
 		local ArrowUp = TweenService:Create(
 			DropArrow2,
 			TweenInfo.new(
-				1,
+				0.5,
 				Enum.EasingStyle.Quad,
 				Enum.EasingDirection.InOut
 			),
@@ -675,7 +675,7 @@ function library:CreateWindow(text)
 				local MouseEntered = TweenService:Create(
 					Roundify,
 					TweenInfo.new(
-					0.5,
+					0.3,
 					Enum.EasingStyle.Quad,
 					Enum.EasingDirection.Out
 					),
@@ -687,7 +687,7 @@ function library:CreateWindow(text)
 				local MouseLeft = TweenService:Create(
 					Roundify,
 					TweenInfo.new(
-					0.5,
+					0.3,
 					Enum.EasingStyle.Quad,
 					Enum.EasingDirection.Out
 					),
@@ -715,7 +715,7 @@ function library:CreateWindow(text)
 				DropFrame.Size = UDim2.new(0, 173, 0, UIListLayout.AbsoluteContentSize.Y)
 			else
 				ArrowUp:Play()
-				DropFrame:TweenSize(UDim2.new(0, 173, 0, 22), "InOut", "Quad", 1, true)
+				DropFrame:TweenSize(UDim2.new(0, 173, 0, 22), "InOut", "Quad", 0.5, true)
 				wait(0.8)
 				DropFrame.Visible = false
 			end
@@ -727,7 +727,7 @@ function library:CreateWindow(text)
 		local MouseEntered = TweenService:Create(
             Roundify,
             TweenInfo.new(
-			0.5,
+			0.3,
 			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.Out
             ),
@@ -739,7 +739,7 @@ function library:CreateWindow(text)
         local MouseLeft = TweenService:Create(
             Roundify,
             TweenInfo.new(
-			0.5,
+			0.3,
 			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.Out
             ),
