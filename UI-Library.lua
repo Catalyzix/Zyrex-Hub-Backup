@@ -711,12 +711,10 @@ function library:CreateWindow(text)
 				ArrowDown:Play()
 				DropFrame.Visible = true
 				DropFrame:TweenSize(UDim2.new(0, 173, 0, UIListLayout.AbsoluteContentSize.Y), "InOut", "Quad", 0.5, true)
-				wait(0.8)
-				DropFrame.Size = UDim2.new(0, 173, 0, UIListLayout.AbsoluteContentSize.Y)
 			else
 				ArrowUp:Play()
 				DropFrame:TweenSize(UDim2.new(0, 173, 0, 22), "InOut", "Quad", 0.5, true)
-				wait(0.8)
+				wait(0.5)
 				DropFrame.Visible = false
 			end
 			DropToggled = not DropToggled
