@@ -251,7 +251,7 @@ function library:CreateWindow(text)
         local MouseEntered = TweenService:Create(
             Roundify,
             TweenInfo.new(
-			0.3,,
+			0.3,
 			Enum.EasingStyle.Quad,
 			Enum.EasingDirection.Out
             ),
