@@ -1,5 +1,5 @@
 --[[
-Created by Zyrex#9999
+Created by Zyrex#3641
 
 Documentation:
 library:CreateWindow(Name <string>)
@@ -18,6 +18,8 @@ _G.Toggle_GUI = _G.Toggle_GUI or Enum.KeyCode.RightControl
 
 local library = {WindowCount = 0}
 local Windows = {}
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
 
 local function RS(Length)
 	math.randomseed(os.time())
@@ -36,9 +38,6 @@ end
 
 local function makeDraggable(obj) 
     --// Original code by Tiffblocks, edited so that it has a cool tween to it. 
-	local UserInputService = game:GetService("UserInputService")
-	local TweenService = game:GetService("TweenService")
-
     local gui = obj
     
     local dragging
@@ -174,7 +173,6 @@ function library:CreateWindow(text)
 	Title.TextSize = 20.000
 	Title.TextXAlignment = Enum.TextXAlignment.Left
 	
-	local TweenService = game:GetService("TweenService")
 	local CloseTween = TweenService:Create(
 		ToggleWindowBtn,
 		TweenInfo.new(
@@ -215,7 +213,6 @@ function library:CreateWindow(text)
     function Window:Button(text, callback)
         local Button = Instance.new("TextButton")
         local Roundify = Instance.new("ImageLabel")
-		local TweenService = game:GetService("TweenService")
 		
 		text = text or "Button"
 		callback = callback or function(...) end
@@ -385,8 +382,6 @@ function library:CreateWindow(text)
 		Roundify.SliceScale = 0.030
 
 		local Toggled = false
-
-		local TweenService = game:GetService("TweenService")
 		
 		local ToggleOn = TweenService:Create(
 			Roundify,
@@ -618,7 +613,6 @@ function library:CreateWindow(text)
 		end
 
 		local DropToggled = false
-		local TweenService = game:GetService("TweenService")
 
 		for i,v in next, list do
 			local Button = Instance.new("TextButton")
