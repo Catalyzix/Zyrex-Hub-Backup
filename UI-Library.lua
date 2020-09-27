@@ -1,5 +1,5 @@
 --[[
-Created by Zyrex#3641
+Created by Zyrex#5659
 
 Documentation:
 library:CreateWindow(Name <string>)
@@ -763,6 +763,7 @@ function library:CreateWindow(text)
 		local SliderButton = Instance.new("TextButton")
 		local Roundify = Instance.new("ImageLabel")
 		local SliderFrame = Instance.new("ImageLabel")
+		local SliderFrame2 = Instance.new("ImageLabel")
 		local Text = Instance.new("TextLabel")
 		
 		Slider.Name = "Slider"
@@ -841,6 +842,18 @@ function library:CreateWindow(text)
 		SliderFrame.SliceCenter = Rect.new(100, 100, 100, 100)
 		SliderFrame.SliceScale = 0.030
 
+		SliderFrame2.Name = "SliderFrame"
+		SliderFrame2.Parent = SliderButton
+		SliderFrame2.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+		SliderFrame2.BackgroundTransparency = 1.000
+		SliderFrame2.Size = UDim2.new(0, 0, 0, 9)
+		SliderFrame2.Image = "rbxassetid://3570695787"
+		SliderFrame2.ImageColor3 = Color3.fromRGB(52, 52, 52)
+		SliderFrame2.ScaleType = Enum.ScaleType.Slice
+		SliderFrame2.SliceCenter = Rect.new(100, 100, 100, 100)
+		SliderFrame2.SliceScale = 0.030
+		SliderFrame2.ImageTransparency = 1
+
 		Text.Name = "Text"
 		Text.Parent = Slider
 		Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -857,23 +870,26 @@ function library:CreateWindow(text)
 		local uis = game:GetService("UserInputService")
 		local value = nil
 		SliderButton.MouseButton1Down:Connect(function()
-            value = math.floor((((tonumber(max) - tonumber(min)) / 173) * SliderFrame.AbsoluteSize.X) + tonumber(min)) or 0
-            Amount.Text = value
-            pcall(function() callback(value) end)
-            SliderFrame.Size = UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 173), 0, 9)
+			SliderFrame2.Size = UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 173), 0, 9)
+			SliderFrame:TweenSize(UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 173), 0, 9), "InOut", "Linear", 0.2, true)
+			value = math.floor((((tonumber(max) - tonumber(min)) / 173) * SliderFrame2.AbsoluteSize.X) + tonumber(min))
+			Amount.Text = value
+			pcall(function() callback(value) end)
             moveconnection = mouse.Move:Connect(function()
-                value = math.floor((((tonumber(max) - tonumber(min)) / 173) * SliderFrame.AbsoluteSize.X) + tonumber(min))
+				SliderFrame:TweenSize(UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 173), 0, 9), "InOut", "Linear", 0.2, true)
+				SliderFrame2.Size = UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 173), 0, 9)
+				value = math.floor((((tonumber(max) - tonumber(min)) / 173) * SliderFrame2.AbsoluteSize.X) + tonumber(min))
                 Amount.Text = value
-                pcall(function() callback(value) end)
-                SliderFrame.Size = UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 173), 0, 9)
+				pcall(function() callback(value) end)
             end)
             releaseconnection = uis.InputEnded:Connect(function(Mouse)
                 if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-                    value = math.floor((((tonumber(max) - tonumber(min)) / 173) * SliderFrame.AbsoluteSize.X) + tonumber(min))
-                    Amount.Text = value
-                    pcall(function() callback(value) end)
-                    SliderFrame.Size = UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 173), 0, 9)
-                    moveconnection:Disconnect()
+					SliderFrame:TweenSize(UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 173), 0, 9), "InOut", "Linear", 0.2, true)
+                    SliderFrame2.Size = UDim2.new(0, math.clamp(mouse.X - SliderFrame.AbsolutePosition.X, 0, 173), 0, 9)
+					value = math.floor((((tonumber(max) - tonumber(min)) / 173) * SliderFrame2.AbsoluteSize.X) + tonumber(min))
+					Amount.Text = value
+					pcall(function() callback(value) end)
+					moveconnection:Disconnect()
                     releaseconnection:Disconnect()
                 end
             end)
@@ -886,4 +902,5 @@ function library:CreateWindow(text)
 	end
     return Window
 end
-return library
+local a = library:CreateWindow("Main")
+a:Slider("Bruh", 1, 100, function() end)
