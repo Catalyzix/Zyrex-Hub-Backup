@@ -1,5 +1,5 @@
 --[[
-Created by Zyrex#5659
+Created by Zyrex#3641
 
 Documentation:
 library:CreateWindow(Name <string>)
@@ -902,5 +902,4 @@ function library:CreateWindow(text)
 	end
     return Window
 end
-local a = library:CreateWindow("Main")
-a:Slider("Bruh", 1, 100, function() end)
+return library
